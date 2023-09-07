@@ -1,7 +1,7 @@
 <script lang="ts">
+	import type { View } from '$lib/movieViews';
 	import { constructMovieImageUrl } from '$lib/movies.api';
 	import type { MovieListResult } from '$lib/types';
-	import type { View } from './view';
 
 	export let movies: MovieListResult[];
 	export let view: View;
