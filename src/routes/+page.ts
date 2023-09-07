@@ -7,8 +7,8 @@ export async function load({ fetch }: { fetch: typeof globalThis.fetch }) {
 			(
 				await Promise.all([
 					fetch(constructMovieUrl('/trending/movie/day')),
-					fetch(constructMovieUrl('/movies/now_playing')),
-					fetch(constructMovieUrl('/movies/upcoming'))
+					fetch(constructMovieUrl('/movie/now_playing')),
+					fetch(constructMovieUrl('/movie/upcoming'))
 				])
 			).map((resp) => resp.json())
 		)
