@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Carousel from './Carousel.svelte';
 	import Hero from './Hero.svelte';
 
 	export let data;
@@ -8,3 +9,5 @@
 <h1 class="column">Top trending movies</h1>
 
 <Hero movie={data.fdata} />
+
+<Carousel movies={data.trending.results} />

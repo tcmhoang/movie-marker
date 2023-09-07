@@ -9,7 +9,7 @@
 	$: logo = imgs.logos.find((img) => img.iso_639_1 == 'en') || imgs.logos[0];
 </script>
 
-<a href="/movie/{movie.id}">
+<a href="/movie/{movie.id}" class="column">
 	<img
 		class="backdrop"
 		src={constructMovieImageUrl(backdrop.file_path)}
