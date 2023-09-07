@@ -2,9 +2,17 @@ import { constructMovieUrl } from '$lib/movies.api';
 import type { MovieDetails, MovieList } from '$lib/types';
 
 export async function load({ fetch }: { fetch: typeof globalThis.fetch }) {
-	const resp = await fetch(constructMovieUrl('/trending/movie/day'));
-
-	const trending = (await resp.json()) as MovieList;
+	const [trending, playing, upcoming] = (
+		await Promise.all(
+			(
+				await Promise.all([
+					fetch(constructMovieUrl('/trending/movie/day')),
+					fetch(constructMovieUrl('/movies/now_playing')),
+					fetch(constructMovieUrl('/movies/upcoming'))
+				])
+			).map((resp) => resp.json())
+		)
+	).map((json) => json as MovieList);
 
 	const f = trending.results[0];
 
@@ -16,6 +24,8 @@ export async function load({ fetch }: { fetch: typeof globalThis.fetch }) {
 
 	return {
 		trending,
-		fdata
+		fdata,
+		playing,
+		upcoming
 	};
 }
