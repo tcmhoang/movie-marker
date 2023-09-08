@@ -15,7 +15,7 @@
 
 <div class="carousel">
 	{#each movies as movie}
-		<a href="/movie/{movie.id}">
+		<a href="/movies/{movie.id}">
 			<img
 				src={constructMovieImageUrl(movie.poster_path, 500)}
 				alt={movie.title}
@@ -31,8 +31,10 @@
 		height: 10rem;
 		gap: 1rem;
 		overflow-x: scroll;
-		scroll-snap-type: mandatory;
+		scroll-snap-type: x mandatory;
 		scroll-padding-left: var(--cpad);
+		overscroll-behavior-x: contain;
+
 		padding: 0 var(--cpad);
 	}
 

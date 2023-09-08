@@ -54,7 +54,7 @@
 <div class="viewport" bind:this={viewport} on:scroll={handleScroll}>
 	<div class="results" bind:this={movieContainer}>
 		{#each movies.slice(fRenderedChild, lRenderedChild) as movie}
-			<a href="/movies/${movie.id}">
+			<a href="/movies/{movie.id}">
 				<img
 					src={constructMovieImageUrl(movie.poster_path, 500)}
 					alt={movie.title}
