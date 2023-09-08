@@ -36,6 +36,12 @@
 		color: var(--accent);
 	}
 
+	main {
+		height: 0;
+		flex: 1;
+		overflow: hidden;
+	}
+
 	a {
 		color: inherit;
 		text-decoration: none;

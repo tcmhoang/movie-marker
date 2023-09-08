@@ -20,16 +20,15 @@
 	let column = 4;
 
 	function handleScroll() {
+		if (viewport.scrollHeight - viewport.clientHeight - viewport.scrollTop < 400) {
+			dispatch('movieUpdated');
+		}
 		fRenderedChild = Math.floor(viewport.scrollTop / movieHeight) * column;
 		lRenderedChild = Math.min(
 			Math.ceil((viewport.scrollTop + viewport.clientHeight) / movieHeight) *
 				column,
 			movies.length
 		);
-
-		if (lRenderedChild == movies.length) {
-			dispatch('movieUpdated');
-		}
 
 		paddingTop = Math.floor((fRenderedChild / column) * movieHeight);
 		paddingBottom = Math.floor(((movies.length - lRenderedChild) / 4) * movieHeight);
@@ -72,7 +71,6 @@
 <style>
 	.viewport {
 		overflow-y: auto;
-		height: 100vh;
 	}
 	.results {
 		display: grid;
