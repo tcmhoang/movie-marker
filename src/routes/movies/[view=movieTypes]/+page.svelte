@@ -1,7 +1,7 @@
 <script lang="ts">
+	import MovieViewer from '$lib/MovieViewer.svelte';
 	import { constructMovieUrl } from '$lib/movies.api';
-	import type { MovieList, MovieListResult } from '$lib/types';
-	import ResultPage from './ResultPage.svelte';
+	import type { MovieList } from '$lib/types';
 
 	export let data;
 
@@ -25,7 +25,7 @@
 <div class="column">
 	<h1>{data.title}</h1>
 
-	<ResultPage
+	<MovieViewer
 		movies={data.movies}
 		next={data.next ? `/movies/${data.view}?page=${data.next}` : null}
 		on:movieUpdated={update}

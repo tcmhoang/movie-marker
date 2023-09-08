@@ -1,6 +1,7 @@
 <script>
 	import '../style.css';
 	import tmdb from '$lib/images/tmdb.svg';
+	import { page } from '$app/stores';
 </script>
 
 <nav>
@@ -12,7 +13,7 @@
 	</div>
 </nav>
 
-<main>
+<main class:infinite={$page.data.infinite}>
 	<slot />
 </main>
 
@@ -36,7 +37,7 @@
 		color: var(--accent);
 	}
 
-	main {
+	main.infinite {
 		height: 0;
 		flex: 1;
 		overflow: hidden;

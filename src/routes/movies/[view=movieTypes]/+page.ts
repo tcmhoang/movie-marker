@@ -23,6 +23,7 @@ export async function load({
 		title: view.title,
 		endpoint: view.endpoint,
 		movies: data.results,
-		next: data.page < data.total_pages ? data.page + 1 : null
+		next: data.page < data.total_pages ? data.page + 1 : null,
+		infinite: true
 	};
 }
