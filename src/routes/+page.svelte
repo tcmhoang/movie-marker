@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Carousel from './Carousel.svelte';
 	import Hero from './Hero.svelte';
 	import { views } from '$lib/movieViews';
+	import Carousel from '$lib/Carousel.svelte';
 
 	export let data;
 </script>

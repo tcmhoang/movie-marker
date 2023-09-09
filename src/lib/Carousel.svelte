@@ -5,12 +5,14 @@
 
 	export let movies: MovieListResult[];
 	export let view: View;
-	export let href: string;
+	export let href: string | null;
 </script>
 
 <h2 class="column">
 	{view.title}
-	<a {href}>see all</a>
+	{#if href}
+		<a {href}>see all</a>
+	{/if}
 </h2>
 
 <div class="carousel">
