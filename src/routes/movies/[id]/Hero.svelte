@@ -4,8 +4,7 @@
 
 	export let movie: MovieDetails;
 
-	const backdrop =
-		movie.images.backdrops.find((i) => !i.iso_639_1) || movie.images.backdrops[0];
+	$: backdrop = movie.images.backdrops.find((i) => !i.iso_639_1) || movie.images.backdrops[0];
 </script>
 
 <div class="hero">
